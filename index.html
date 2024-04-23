@@ -1,1 +1,32 @@
-hello
+<!-- visit https://cnhuang.github.io -->
+
+
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
+<script src="https://www.googletagmanager.com/gtag/js?id=G-ZW0HQJEQCG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZW0HQJEQCG');
+</script>
+    <script type="text/javascript">
+        
+      function logEvent(like) {
+        const data = {
+            'value': like,
+         };
+        console.log(data);
+        gtag('event', 'screen_view');
+        // gtag('event', 'like', data);
+       }
+    </script>
+</head>
+<body>
+    <div>This is where the purchase form would go</div>
+    <button onclick="logEvent(true)">I like it</button>
+    <button onclick="logEvent(false)">I don't like it</button>
+</body>
+</html>
