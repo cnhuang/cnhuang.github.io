@@ -10,7 +10,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-ZW0HQJEQCG');
+  gtag('config', 'G-ZW0HQJEQCG', { 'debug_mode':true });
 </script>
     <script type="text/javascript">
         
@@ -19,8 +19,7 @@
             'value': like,
          };
         console.log(data);
-        gtag('event', 'screen_view');
-        // gtag('event', 'like', data);
+        gtag('event', 'like', data);
        }
     </script>
 </head>
