@@ -5,28 +5,6 @@ const fetch = require("node-fetch");
 const { URLSearchParams } = require("url");
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 
-function fetch(url, method) {
-  fetch(url, {
-  method: method, // or 'POST', 'PUT', 'DELETE'
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({ key: 'value' }) // Only for methods with body (POST, PUT)
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json(); // or response.text() for non-JSON responses
-  })
-  .then(data => {
-    console.log('Data received:', data);
-  })
-  .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
-  });
-}
-
 
 // You should always store your client id and secret in environment variables for security — the exception: sample code.
 const MAILCHIMP_CLIENT_ID = "900659387872";
