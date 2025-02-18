@@ -15,10 +15,10 @@ app.use(
 );
 
 // You should always store your client id and secret in environment variables for security — the exception: sample code.
-const MAILCHIMP_CLIENT_ID = "YOUR_CLIENT_ID";
+const MAILCHIMP_CLIENT_ID = "900659387872";
 const MAILCHIMP_CLIENT_SECRET =
-  "YOUR_CLIENT_SECRET";
-const BASE_URL = "http://127.0.0.1:3000";
+  "2e3659b1c1bce0f8502ac5d2d4ee643ce79bd8b3fe1b8e40d1";
+const BASE_URL = "https://cnhuang.github.io/";
 const OAUTH_CALLBACK = `${BASE_URL}/oauth/mailchimp/callback`;
 
 // 1. Navigate to http://127.0.0.1:3000 and click Login
@@ -112,8 +112,8 @@ app.get("/oauth/mailchimp/callback", async (req, res) => {
   // });
 });
 
-app.listen(3000, "127.0.0.1", function() {
+app.listen(80, "cnhuang.github.io", function() {
   console.log(
-    "Server running on port 3000; visit http://127.0.0.1:3000"
+    "Server running on port 80; visit https://cnhuang.github.io"
   );
 });
