@@ -5,14 +5,28 @@ const fetch = require("node-fetch");
 const { URLSearchParams } = require("url");
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 
-// Basic express app setup
-const app = express();
-app.use(bodyParser.json());
-app.use(
-  bodyParser.urlencoded({
-    extended: true
+function fetch(url, method) {
+  fetch(url, {
+  method: method, // or 'POST', 'PUT', 'DELETE'
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ key: 'value' }) // Only for methods with body (POST, PUT)
   })
-);
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json(); // or response.text() for non-JSON responses
+  })
+  .then(data => {
+    console.log('Data received:', data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+}
+
 
 // You should always store your client id and secret in environment variables for security — the exception: sample code.
 const MAILCHIMP_CLIENT_ID = "900659387872";
@@ -21,12 +35,6 @@ const MAILCHIMP_CLIENT_SECRET =
 const BASE_URL = "https://cnhuang.github.io/";
 const OAUTH_CALLBACK = `${BASE_URL}/oauth/mailchimp/callback`;
 
-// 1. Navigate to http://127.0.0.1:3000 and click Login
-app.get("/", function(req, res) {
-  res.send(
-    '<p>Welcome to the sample Mailchimp OAuth app! Click <a href="/auth/mailchimp">here</a> to log in</p>'
-  );
-});
 
 // 2. The login link above will direct the user here, which will redirect
 // to Mailchimp's OAuth login page.
