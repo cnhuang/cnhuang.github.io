@@ -1,17 +1,19 @@
 <script>
 
 function post(token) {
+  let body = { grant_type: "authorization_code",
+        client_id: MAILCHIMP_CLIENT_ID,
+        client_secret: MAILCHIMP_CLIENT_SECRET,
+        redirect_uri: OAUTH_CALLBACK,
+        code: document.getElementById("code").value };
+  console.log(body);
   fetch('https://login.mailchimp.com/oauth2/token', {
   method: 'POST', // or 'POST', 'PUT', 'DELETE'
   headers: {
     'Content-Type': 'application/json'
   },
      
-  body: JSON.stringify({ grant_type: "authorization_code",
-        client_id: MAILCHIMP_CLIENT_ID,
-        client_secret: MAILCHIMP_CLIENT_SECRET,
-        redirect_uri: OAUTH_CALLBACK,
-        code }) // Only for methods with body (POST, PUT)
+  body: JSON.stringify(body) // Only for methods with body (POST, PUT)
 })
 .then(response => {
   if (!response.ok) {
