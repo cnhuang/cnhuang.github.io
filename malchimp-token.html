@@ -4,7 +4,7 @@ function post(token) {
   let body = { grant_type: "authorization_code",
         client_id: MAILCHIMP_CLIENT_ID,
         client_secret: MAILCHIMP_CLIENT_SECRET,
-        redirect_uri: OAUTH_CALLBACK,
+        redirect_uri: 'https://cnhuang.github.io/mailchimp-token-callback.html',
         code: document.getElementById("code").value };
   console.log(body);
   fetch('https://login.mailchimp.com/oauth2/token', {
