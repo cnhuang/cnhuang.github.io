@@ -2,8 +2,8 @@
 
 function post(token) {
   let body = { grant_type: "authorization_code",
-        client_id: MAILCHIMP_CLIENT_ID,
-        client_secret: MAILCHIMP_CLIENT_SECRET,
+        client_id: '900659387872',
+        client_secret: '2e3659b1c1bce0f8502ac5d2d4ee643ce79bd8b3fe1b8e40d1',
         redirect_uri: 'https://cnhuang.github.io/mailchimp-token-callback.html',
         code: document.getElementById("code").value };
   console.log(body);
